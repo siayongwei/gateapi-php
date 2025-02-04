@@ -24,7 +24,7 @@
  */
 
 namespace GateApi;
-use GuzzleHttp\Psr7\Query;
+use Query;
 /**
  * Configuration Class Doc Comment
  * PHP version 7
@@ -407,7 +407,7 @@ class Configuration
         $fmt = "%s\n%s\n%s\n%s\n%s";
         $timestamp = time();
         $hashedPayload = hash("sha512", ($payload != null) ? $payload : "");
-        $queryString = $queryParams ? GuzzleHttp\Psr7\Query::build($queryParams, false) : '';
+        $queryString = $queryParams ? Query::build($queryParams, false) : '';
         $signatureString = sprintf($fmt, $method, $fullPath,
         $queryString,
         $hashedPayload, $timestamp);
